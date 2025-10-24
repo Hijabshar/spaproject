@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Success</title>
+  <link rel="stylesheet" href="spa.css" />
+  <style>
+    body {
+      background: #fafafa;
+      font-family: "Poppins", sans-serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.2);
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+    }
+    h2 {
+      color: #4f46e5;
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 0.8rem 0;
+      line-height: 1.4;
+    }
+    strong {
+      color: #4f46e5;
+    }
+    #displayMessage {
+      background: #f3f4f6;
+      padding: 1rem;
+      border-radius: 8px;
+      font-style: italic;
+      white-space: pre-wrap;
+      margin-top: 0.5rem;
+    }
+    .btns {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 0.75rem 2rem;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.5);
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #4338ca;
+    }
+
+    /* Editable input styles */
+    .editable-input {
+      display: block;
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 1rem;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Thank You! Your message has been sent.</h2>
+
+    <div id="viewMode">
+      <p><strong>Name:</strong> <span id="displayName"></span></p>
+      <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+      <p><strong>Message:</strong></p>
+      <p id="displayMessage"></p>
+    </div>
+
+    <div id="editMode" style="display: none;">
+      <label><strong>Name:</strong></label>
+      <input type="text" id="editName" class="editable-input" />
+
+      <label><strong>Email:</strong></label>
+      <input type="email" id="editEmail" class="editable-input" />
+
+      <label><strong>Message:</strong></label>
+      <textarea id="editMessage" class="editable-input" rows="5"></textarea>
+    </div>
+
+    <div class="btns">
+      <button id="editBtn">EDIT</button>
+      <button id="saveBtn" style="display: none;">SAVE CHANGES</button>
+      <button id="goBackBtn">GO BACK</button>
+    </div>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("formData"));
+
+    if (data) {
+      document.getElementById("displayName").textContent = data.name;
+      document.getElementById("displayEmail").textContent = data.email;
+      document.getElementById("displayMessage").textContent = data.message;
+
+      document.getElementById("editName").value = data.name;
+      document.getElementById("editEmail").value = data.email;
+      document.getElementById("editMessage").value = data.message;
+    } else {
+      document.body.innerHTML = "<h2>No form data found. Please submit the form first.</h2>";
+    }
+
+    const editBtn = document.getElementById("editBtn");
+    const saveBtn = document.getElementById("saveBtn");
+    const viewMode = document.getElementById("viewMode");
+    const editMode = document.getElementById("editMode");
+
+    // Edit button click
+    editBtn.addEventListener("click", () => {
+      viewMode.style.display = "none";
+      editMode.style.display = "block";
+      editBtn.style.display = "none";
+      saveBtn.style.display = "inline-block";
+    });
+
+    // Save button click
+    saveBtn.addEventListener("click", () => {
+      const updatedData = {
+        name: document.getElementById("editName").value.trim(),
+        email: document.getElementById("editEmail").value.trim(),
+        message: document.getElementById("editMessage").value.trim(),
+      };
+
+      localStorage.setItem("formData", JSON.stringify(updatedData));
+
+      document.getElementById("displayName").textContent = updatedData.name;
+      document.getElementById("displayEmail").textContent = updatedData.email;
+      document.getElementById("displayMessage").textContent = updatedData.message;
+
+      viewMode.style.display = "block";
+      editMode.style.display = "none";
+      editBtn.style.display = "inline-block";
+      saveBtn.style.display = "none";
+    });
+
+    // Go back button
+    document.getElementById("goBackBtn").addEventListener("click", () => {
+      window.location.href = "spa.html";
+    });
+  </script>
+</body>
+</html>

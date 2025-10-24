@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudioPrime - Contact</title>
+  <link rel="stylesheet" href="spa.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="container nav-content">
+      <h1 class="logo">StudioPrime</h1>
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Create Beautiful Web Experiences</h1>
+      <p>Streamlined forms, real-time validation, and better user feedback.</p>
+      <a href="#contact" class="btn-primary">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-header">
+        <h2>Get in Touch</h2>
+        <p>We’ll get back to you within one business day.</p>
+      </div>
+
+      <form id="contactForm" novalidate class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" />
+            <small class="error"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
+            <small class="error"></small>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message..."></textarea>
+          <small class="error"></small>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+        <p id="successMsg" class="success-message"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 StudioPrime — Built with care.</p>
+    <p>Powered by <strong><a href="https://www.icreativez.com">iCreativez</a></strong></p>
+  </footer>
+
+  <script src="spa.js"></script>
+</body>
+</html>
