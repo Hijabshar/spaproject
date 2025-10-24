@@ -20,6 +20,7 @@ JavaScript (ES6) for interactivity
 
 This project was created to practice SPA concepts — such as routing, dynamic rendering, and UI updates — all within a single HTML page. It demonstrates how front-end logic can be managed efficiently without relying on frameworks.
 
+Screen shorts of my project.
 
 https://ibb.co/fYHQQd05
 
