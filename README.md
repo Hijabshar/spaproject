@@ -22,7 +22,13 @@ This project was created to practice SPA concepts — such as routing, dynamic r
 
 
 https://ibb.co/fYHQQd05
+
 https://ibb.co/twzpnpdz
+
 https://ibb.co/sJDPQ9Zc
+
 https://ibb.co/8gqmNv9H
+
 https://ibb.co/cc90H7xH
+
+
